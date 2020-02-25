@@ -1,5 +1,14 @@
 var express = require("express");
+var mysql = require('mysql');
+var fs  = require('fs');
 
+var connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'phoenux_store'
+});
+connection.connect();
 
 var app = express();
 
