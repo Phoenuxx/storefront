@@ -1,29 +1,34 @@
-var express = require("express");
-var mysql = require('mysql');
-var fs  = require('fs');
+const express = require("express");
+const path = require('path');
+const db = require('./models');
 
-var connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'phoenux_store'
-});
-connection.connect();
 
-var app = express();
+
+//seet up express
+const app = express();
 
 //Variable port  w/ default 8080
 var PORT = process.env.PORT || 8080;
+
+// Static directory to be served
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 //Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-//Routes for html pages
-// require("./app/routing/apiRoutes")(app);
-// require("./app/routing/htmlRoutes")(app);
+//Routes
+require("./routes/apiRoutes")(app);
+//HTML 
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname + '../../client/public/index.html'));
+  });
 
-//server page request listener
-app.listen(PORT, function () {
-	console.log("App listening on PORT: " + PORT);
-});  
+// Syncing our sequelize models and then starting our Express app
+// =============================================================
+db.sequelize.sync().then(function() {
+	app.listen(PORT, function() {
+	  console.log("App listening on PORT " + PORT);
+	});
+  });
+  
