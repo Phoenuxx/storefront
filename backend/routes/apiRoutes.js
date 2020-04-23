@@ -14,7 +14,7 @@ const db = require("../models");
 module.exports = function (app) {
 
   app.get("/api/all", (req, res) => {
-    db.Stock.findAll({limit: 12}).then(function (results) {
+    db.Stock.findAll({}).then(function (results) {
       res.json(results);
     });
   })
