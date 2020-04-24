@@ -12,25 +12,20 @@ class Home extends Component {
 
   constructor(props) {
     super(props);
+    this.state = {
+      length: 0,
+      data: [],
+      pageData: [],
+      currentPage: 1,
+      currentPageStart: 0,
+      currentPageEnd: 12,
+      perPage: 12,
+      currentVisibleInv: []
+    }
     this.setCurrentpage = this.setCurrentpage.bind(this);
   };
 
-  static propTypes = {
-    url: PropTypes.string.isRequired,
-    author: PropTypes.string.isRequired,
-    perPage: PropTypes.number.isRequired,
-  };
 
-  state = {
-    length: 0,
-    data: [],
-    pageData: [],
-    currentPage: 1,
-    currentPageStart: 0,
-    currentPageEnd: 12,
-    perPage: 12,
-    currentVisibleInv: []
-  }
 
   UNSAFE_componentWillMount() {
     this.loadInv();
@@ -46,6 +41,8 @@ class Home extends Component {
             currentVisibleInv: res.data.slice(this.state.currentPageStart, this.state.currentPageEnd),
             pageCount: Math.ceil(res.data.length / 12)
           });
+        console.log("currentPage: " + this.state.currentPage + "-" + " currentPageStart: " + this.state.currentPageStart + "-" + "CurrentPageEnd: " + this.state.currentPageEnd);
+        console.log(this.state.currentVisibleInv);
         // console.log(this.state.currentVisibleInv);
       })
       .catch(err => console.log(err));
@@ -57,13 +54,17 @@ class Home extends Component {
 
     if (currentPage === 1) {
       this.setState({
-        // currentPageStart: 0,
-        // currentPageEnd: currentPage * this.state.perPage,
-        // currentVisibleInv: this.state.data.slice(this.state.currentPageStart, this.state.currentPageEnd),
+        currentPageStart: 0,
+        currentPageEnd: currentPage * this.state.perPage,
+        currentVisibleInv: this.state.data.slice(this.state.currentPageStart, this.state.currentPageEnd),
       }, function () {
         // console.log('displayUpdateOnPageChange')
-        console.log('=1')
+        this.setState({
+          currentVisibleInv: this.state.data.slice(this.state.currentPageStart, this.state.currentPageEnd),
+        });
+        console.log('=1');
         console.log("currentPage: " + this.state.currentPage + "-" + " currentPageStart: " + this.state.currentPageStart + "-" + "CurrentPageEnd: " + this.state.currentPageEnd);
+        console.log(this.state.currentVisibleInv);
         // console.log(this.state);
         // console.log(this.state.currentPage);
       });
@@ -71,25 +72,29 @@ class Home extends Component {
     else if (currentPage >= 2) {
       this.setState({
         currentPageStart: (this.state.currentPage * this.state.perPage) - (this.state.perPage),
-        currentPageEnd: ((this.state.currentPage * this.state.perPage) - 1),
-        currentVisibleInv: this.state.data.slice(13, 24),
+        currentPageEnd: (this.state.currentPage * this.state.perPage),
+       
       }, function () {
         // console.log('displayUpdateOnPageChange')
-        console.log('>1')
+        this.setState({
+          currentVisibleInv: this.state.data.slice(this.state.currentPageStart, this.state.currentPageEnd),
+        });
+        console.log('>1');
         console.log("currentPage: " + this.state.currentPage + "-" + " currentPageStart: " + this.state.currentPageStart + "-" + "CurrentPageEnd: " + this.state.currentPageEnd);
+        console.log(this.state.currentVisibleInv);
         // console.log(this.state);
       });
-    }
-    // console.log('displayUpdateOnPageChange')
-    // console.log(currentPage);
-    // console.log(this.state);
+
   };
+};
 
   setCurrentpage = data => {
     this.setState({
       currentPage: data.selected + 1,
     }
-    , this.displayUpdateOnPageChange());
+      , function () {
+        this.displayUpdateOnPageChange();
+      });
     // console.log('setCurrentPage');
     // console.log(this.state.currentPage);
   }
@@ -109,7 +114,7 @@ class Home extends Component {
           nextLabel={'next'}
           breakLabel={'...'}
           breakClassName={'break-me'}
-          pageCount={20}
+          pageCount={this.state.data.length / 12}
           marginPagesDisplayed={2}
           pageRangeDisplayed={2}
           onPageChange={this.handlePageClick}
