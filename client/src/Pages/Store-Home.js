@@ -3,13 +3,14 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Navbar from '../Components/navbar';
 import Product from '../Components/product';
+import Footer from '../Components/footer';
 import ReactPaginate from 'react-paginate';
 import API from "../Utils/API";
 
 
 class Home extends Component {
 
-
+  //set initial state
   constructor(props) {
     super(props);
     this.state = {
@@ -22,16 +23,17 @@ class Home extends Component {
       perPage: 12,
       currentVisibleInv: []
     }
-    this.setCurrentpage = this.setCurrentpage.bind(this);
   };
 
 
-
+  //calls API function before component mounts
+  //TODO need to find alternative since componentWillMount is being phased out
   UNSAFE_componentWillMount() {
     this.loadInv();
     //  console.log(this.state)
   }
 
+  //Initial API call to pull product data
   loadInv = () => {
     API.getInv()
       .then(res => {
@@ -47,11 +49,12 @@ class Home extends Component {
       })
       .catch(err => console.log(err));
   };
-
+  //updates visible inventory to be displayed on page
+  //TODO look into drying up this function, maybe splitting into 2 functions
   displayUpdateOnPageChange = () => {
 
     let currentPage = this.state.currentPage
-
+    //if page 1 is selected to account for starting id:0
     if (currentPage === 1) {
       this.setState({
         currentPageStart: 0,
@@ -69,11 +72,12 @@ class Home extends Component {
         // console.log(this.state.currentPage);
       });
     }
+    //else if any other page number
     else if (currentPage >= 2) {
       this.setState({
         currentPageStart: (this.state.currentPage * this.state.perPage) - (this.state.perPage),
         currentPageEnd: (this.state.currentPage * this.state.perPage),
-       
+
       }, function () {
         // console.log('displayUpdateOnPageChange')
         this.setState({
@@ -85,9 +89,10 @@ class Home extends Component {
         // console.log(this.state);
       });
 
+    };
   };
-};
 
+  //uses pagination component's data to list current page
   setCurrentpage = data => {
     this.setState({
       currentPage: data.selected + 1,
@@ -99,11 +104,11 @@ class Home extends Component {
     // console.log(this.state.currentPage);
   }
 
-  handlePageClick = data => {
-    // console.log(data.selected + 1);
-    this.setCurrentpage(data);
-    // console.log(this.state.currentPage);
-  };
+  // handlePageClick = data => {
+  //   // console.log(data.selected + 1);
+  //   this.setCurrentpage(data);
+  //   // console.log(this.state.currentPage);
+  // };
 
   render() {
     return (
@@ -117,12 +122,11 @@ class Home extends Component {
           pageCount={this.state.data.length / 12}
           marginPagesDisplayed={2}
           pageRangeDisplayed={2}
-          onPageChange={this.handlePageClick}
+          onPageChange={this.setCurrentpage}
           containerClassName={'pagination'}
           subContainerClassName={'pages pagination'}
           activeClassName={'active'}
-          url={'http://localhost:3000/'}
-        // perPage={12}
+        // url={'http://localhost:3000/'}
         />
         <div className='row product-cont'>
           {this.state.currentVisibleInv.map((info, i) => {
@@ -130,8 +134,21 @@ class Home extends Component {
           })
           }
         </div>
-
-
+        <ReactPaginate
+          previousLabel={'previous'}
+          nextLabel={'next'}
+          breakLabel={'...'}
+          breakClassName={'break-me'}
+          pageCount={this.state.data.length / 12}
+          marginPagesDisplayed={2}
+          pageRangeDisplayed={2}
+          onPageChange={this.handlePageClick}
+          containerClassName={'pagination'}
+          subContainerClassName={'pages pagination'}
+          activeClassName={'active'}
+        // url={'http://localhost:3000/'}
+        />
+        <Footer />
       </div >
     );
   }

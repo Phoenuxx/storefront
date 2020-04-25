@@ -8,24 +8,46 @@
 
 .card {
   margin: auto;
+  height: 420px;
+}
+
+.img-wrapper {
+  padding: auto;
+  height: 190px;
+}
+
+.card-img-top {
+  margin: auto;
+  max-height: 190px;
+  max-width: 190px;
+  width: auto;
+  height: auto;
 }
 
 .card-body {
-  text-align: center
+  text-align: center;
 }
- .card-img-top {
-   margin: auto;
-   max-height: 190px;
-   max-width: 190px;
-   width: auto;
-   height: auto;
- }
 
+.card-title {
+  height: 48px;
+}
+
+.card-description {
+  height: 60px;
+}
+
+.item-num {
+  margin-bottom: 3px;
+}
 .product-cont {
   margin: 5% auto;
-  height: 50px;
+  height: auto;
   max-width: 75%;
   background-color: black;
+}
+
+#footer {
+  border-top: 40px #e0e0e0 solid;
 }
 
 @media screen and (min-width: 577px) {
