@@ -14,9 +14,10 @@ module.exports = function (sequelize, DataTypes) {
     weight: DataTypes.INTEGER,
     units: DataTypes.INTEGER,
     category: DataTypes.STRING,
+    subCategory: DataTypes.STRING,
     price: {
       type: DataTypes.DOUBLE,
-      allowNUll: false 
+      allowNull: false 
     },
     quantity: DataTypes.INTEGER
   });

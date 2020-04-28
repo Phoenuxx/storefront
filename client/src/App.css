@@ -6,6 +6,23 @@
   border-bottom: 30px #f1bf05 solid !important;
 }
 
+#navbar-text-area {
+  margin-left: 15%;
+  font-size: 1.5em;
+}
+
+.navbar-nav {
+  width: 200px;
+}
+
+#navbar-prestige {
+  margin: auto 15%;
+}
+ 
+#search-bar {
+  margin-top: .5rem !important;
+}
+
 .card {
   margin: auto;
   height: 420px;
@@ -39,22 +56,56 @@
 .item-num {
   margin-bottom: 3px;
 }
+
 .product-cont {
-  margin: 5% auto;
+  margin: 3rem auto;
   height: auto;
   max-width: 75%;
-  background-color: black;
+  /* background-color: black; */
+}
+
+#navbarSupportedContent {
+  width: 300px;
+}
+.pagination {
+  /* text-align: center; */
+  font-size: 1.2em;
+}
+
+.category-card, .nav-link {
+  font-size: 1.5em;
 }
 
 #footer {
   border-top: 40px #e0e0e0 solid;
+  background-color: #f8f9fa;
+  text-align: center;
 }
 
-@media screen and (min-width: 577px) {
-  .dropdown{
-    max-width: 250px;
+.small-screen-toggle {
+  visibility: hidden;
+}
+
+#company-info {
+  font-size: 1.2rem;
+  /* text-align: center; */
+  font-weight: 800;
+}
+
+@media screen and (max-width: 991px) {
+  .small-screen-toggle {
+    visibility: visible;
+  }
+  .desktop-only {
+    visibility: hidden;
   }
 }
+
+
+  .dropdown-menu{
+    width: 230px;
+  }
+
 
 @media screen and (max-width: 576px) {
   
@@ -72,4 +123,10 @@
     margin: auto;
     height: auto;
    }
+
+   /* #search-bar {
+    position: absolute;
+    right:  10px;
+    top: 80px;
+  } */
 }
