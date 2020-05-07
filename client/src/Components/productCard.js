@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 function ProductCard(props) {
 
   return (
-    <a href={'/products/' + props.id} className="card col-11 col-md-4 col-lg-3">
+    <a href={'/' + props.category + '/' + props.subcategory + '/' + props.product} className="card product-card col-11 col-md-4 col-lg-3">
       <div className='img-wrapper row'>
         <img src={props.pic} className="card-img-top col-12" alt="..." />
       </div>
@@ -16,6 +16,6 @@ function ProductCard(props) {
       </div>
     </a>
   )
-}
+};
 
 export default ProductCard;

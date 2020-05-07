@@ -31,14 +31,15 @@ const array = [{ product: 'ON DECK EQUIPMENT', pic: 'https://www.roofmaster.com/
 ];
 
 class Home extends Component {
-  render() {
+  render(props) {
+    console.log(this);
     return (
       <div>
         <Navbar />
         <SearchBox />
-        <div className='row product-cont'>
+        <div className='row category-cont'>
           {array.map((category, i) => {
-            return <CategoryCard product={category.product} pic={category.pic} />
+            return <CategoryCard product={category.product} pic={category.pic} key={i} />
           })
           }
         </div>

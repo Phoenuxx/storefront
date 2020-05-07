@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../Components/navbar';
-import Product from '../Components/product';
+import Product from '../Components/productCard';
 import Footer from '../Components/footer';
 import ReactPaginate from 'react-paginate';
 import API from "../Utils/API";
+import List from '../Components/categoryList';
 
 
-class ProductPage extends Component {
+class CategoryPage extends Component {
 
   //set initial state
   constructor(props) {
@@ -27,11 +28,21 @@ class ProductPage extends Component {
   //calls API function before component mounts
   componentDidMount() {
     this.loadInv();
-   }
+  }
 
   //Initial API call to pull product data
   loadInv = () => {
-    API.getInv()
+    if (this.props.match.params.subcategory) {
+      this.subcategoryCall(this.props.match.params.category.split('-').join(' '), this.props.match.params.subcategory.split('-').join(' '));
+      console.log(this.props.match.params.category.split('-').join(' '), this.props.match.params.subcategory.split('-').join(' '));
+    } else {
+      this.categoryCall(this.props.match.params.category.split('-').join(' '));
+      console.log(this.props.match.params.category.split('-').join(' '));
+    }
+  }
+
+  categoryCall = (category) => {
+    API.getCategory(category)
       .then(res => {
         this.setState(
           {
@@ -45,6 +56,24 @@ class ProductPage extends Component {
       })
       .catch(err => console.log(err));
   };
+
+  subcategoryCall = (cat, subcat) => {
+    API.getSubCategory(cat, subcat)
+      .then(res => {
+        this.setState(
+          {
+            data: res.data,
+            currentVisibleInv: res.data.slice(this.state.currentPageStart, this.state.currentPageEnd),
+            pageCount: Math.ceil(res.data.length / 12)
+          });
+        console.log("currentPage: " + this.state.currentPage + "-" + " currentPageStart: " + this.state.currentPageStart + "-" + "CurrentPageEnd: " + this.state.currentPageEnd);
+        console.log(this.state.currentVisibleInv);
+        // console.log(this.state.currentVisibleInv);
+      })
+      .catch(err => console.log(err));
+  };
+
+
   //updates visible inventory to be displayed on page
   //TODO look into drying up this function, maybe splitting into 2 functions
   displayUpdateOnPageChange = () => {
@@ -86,6 +115,13 @@ class ProductPage extends Component {
     };
   };
 
+
+  //return to top of page on page change
+  topOfPage = () => {
+    const elmnt = document.getElementById("navbar");
+    elmnt.scrollIntoView();
+  }
+
   //uses pagination component's data to list current page
   setCurrentpage = data => {
     this.setState({
@@ -94,35 +130,47 @@ class ProductPage extends Component {
       , function () {
         this.displayUpdateOnPageChange();
       });
+    this.topOfPage();
   }
 
   render() {
     return (
       <div>
         <Navbar />
-        <div className='row product-cont'>
-          {this.state.currentVisibleInv.map((info, i) => {
-            return <Product key={i} id={info.id} product={info.product_name} pic={info.picture} description={info.description} item={info.item_number} />
-          })
-          }
+        <div className='row'>
+          <div className='col-2'>
+            <List class='desktop-only'/>
+          </div>
+          <div className='col-12 col-lg-10'>
+            <div className='row product-cont'>
+              {this.state.currentVisibleInv.map((info, i) => {
+                return <Product key={i} id={info.id} product={info.product_name} pic={info.picture} description={info.description} item={info.item_number} category={info.category} subcategory={info.subCategory} />
+              })
+              }
+            </div>
+          </div>
         </div>
-        <ReactPaginate
-          previousLabel={'previous'}
-          nextLabel={'next'}
-          breakLabel={'...'}
-          breakClassName={'break-me'}
-          pageCount={this.state.data.length / 12}
-          marginPagesDisplayed={2}
-          pageRangeDisplayed={2}
-          onPageChange={this.setCurrentpage}
-          containerClassName={'pagination'}
-          subContainerClassName={'pages pagination'}
-          activeClassName={'active'}
-        // url={'http://localhost:3000/'}
-        />
+        <div className='row'>
+          {this.state.pageCount > 1 ?
+            <ReactPaginate
+              previousLabel={'previous'}
+              nextLabel={'next'}
+              breakLabel={'...'}
+              breakClassName={'break-me'}
+              pageCount={this.state.pageCount}
+              marginPagesDisplayed={2}
+              pageRangeDisplayed={2}
+              onPageChange={this.setCurrentpage}
+              containerClassName={'pagination col-12'}
+              subContainerClassName={'pages pagination'}
+              activeClassName={'active'}
+            // url={'http://localhost:3000/'}
+            />
+            : <div>1</div>}
+        </div>
         <Footer />
       </div >
     );
   }
 }
-export default ProductPage;
+export default CategoryPage;

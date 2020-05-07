@@ -57,7 +57,17 @@
   margin-bottom: 3px;
 }
 
+.sub-list {
+  display: none;
+}
 .product-cont {
+  margin: 3rem auto;
+  height: auto;
+  max-width: 75%;
+  /* background-color: black; */
+}
+
+.category-cont {
   margin: 3rem auto;
   height: auto;
   max-width: 75%;
@@ -68,23 +78,24 @@
   width: 300px;
 }
 .pagination {
-  /* text-align: center; */
-  font-size: 1.2em;
+  text-align: center;
+  font-size: 2rem;
 }
 
-.category-card, .nav-link {
+a.category-card, a.product-card {
+  margin: auto 0;
+  color: black;
+}
+
+.nav-link, .category-card {
   font-size: 1.5em;
 }
-
 #footer {
   border-top: 40px #e0e0e0 solid;
   background-color: #f8f9fa;
   text-align: center;
 }
 
-.small-screen-toggle {
-  visibility: hidden;
-}
 
 #company-info {
   font-size: 1.2rem;
@@ -92,20 +103,85 @@
   font-weight: 800;
 }
 
-@media screen and (max-width: 991px) {
-  .small-screen-toggle {
-    visibility: visible;
-  }
-  .desktop-only {
-    visibility: hidden;
-  }
+#breadcrumb-trail {
+  margin-left: 1rem;
+  padding: 0.5rem;
+  
 }
 
+.breadcrumbs {
+  color: black;
+}
 
-  .dropdown-menu{
-    width: 230px;
+#product-display {
+  margin: auto;
+  text-align: center;
+}
+
+#product-img {
+  border: 1px gray solid;
+}
+
+.featured-products {  
+  background-color: #f1bf05;
+  margin-left: 6rem;
+
+}
+
+.list-group {
+  margin-top: 1rem;
+  padding-right: 2rem;
+  text-align: justify;
+}
+
+.cat-list-title {
+  font-size: 1.2rem;
+}
+
+.subcat-list {
+  /* display: none; */
+  /* transition: opacity 1s; */
+  transition: max-height 2s ease-out;
+  /* opacity: 0; */
+  max-height: 0;
+  overflow: hidden;
+}
+
+.subcat-list-item {
+  color: black;
+}
+
+.list-group-item:hover .subcat-list {
+  /* display: block; */
+  /* opacity: 1; */
+  max-height: 50rem;
+}
+
+.dropdown-menu{
+    width: 13rem;
   }
 
+#add-cart-btn {
+  width: 7rem;
+}
+
+.small-screen-toggle {
+  display: none;
+}
+
+.desktop-only{
+  display: block;
+}
+
+@media screen and (max-width: 991px) {
+  .small-screen-toggle {
+   display: block;
+  }
+
+  .desktop-only {
+    display: none;
+  }
+}
 
 @media screen and (max-width: 576px) {
   
@@ -123,6 +199,10 @@
     margin: auto;
     height: auto;
    }
+
+   a.category-card, a.product-card {
+    margin: auto;
+  }
 
    /* #search-bar {
     position: absolute;

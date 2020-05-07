@@ -18,18 +18,25 @@ module.exports = function (app) {
       res.json(results);
     });
   })
-  
-  app.get("/api/:category", (req, res) => {
-    db.Stock.findAndCountAll({ where: { category: req.params.category }, limit: 1, offset: 0}).then(function (results) {
+
+  app.get("/api/:category/", (req, res) => {
+    db.Stock.findAll({ where: { category: req.params.category } }).then(function (results) {
       res.json(results);
       console.log("category limit offset")
     });
   })
 
-  // An api endpoint that returns a short list of items
-  app.get('/api/getList', (req, res) => {
-    var list = ["item1", "item2", "item3"];
-    res.json(list);
-    console.log('Sent list of items');
-  });
+  app.get("/api/:category/:subcategory", (req, res) => {
+    db.Stock.findAll({ where: { category: req.params.category, subcategory: req.params.subcategory } }).then(function (results) {
+      res.json(results);
+      console.log("category limit offset")
+    });
+  })
+
+  app.get("/api/:category/:subcategory/:product", (req, res) => {
+    db.Stock.findAll({ where: {category: req.params.category, subcategory: req.params.subcategory, product_name: req.params.product } }).then(function (results) {
+      res.json(results);
+      console.log(req.params.product);
+    });
+  })
 };
