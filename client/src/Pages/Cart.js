@@ -57,7 +57,7 @@ class Cart extends Component {
               this.props.cart.map((item, i) => {
                 return (
                   <div className='row item-view'>
-                    <div className='col-10'>
+                    <div className='col-9 col-md-10'>
                       <div className='row'>
                         <img class="card-img-top col-2" src={item.image} alt="Card image cap" />
                         <div className='cart-product-name col-10'>{item.product}</div>
@@ -80,7 +80,7 @@ class Cart extends Component {
                       </div>
                       <button class="btn btn-primary remove-btn">Remove</button>
                     </div>
-                    <div className='col-2'>
+                    <div className='col-3 col-md-2'>
                       <p>${parseInt(item.price)}</p>
                     </div>
                   </div>
