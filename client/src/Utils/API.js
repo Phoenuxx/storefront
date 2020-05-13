@@ -18,5 +18,9 @@ export default {
     console.log(cat);
     console.log(subcat);
     return axios.get("/api/" + cat + "/" + subcat);
+  },
+  getFeaturedProducts: function (cat) {
+    console.log(cat)
+    return axios.get('/api/featured/' + cat)
   }
 }

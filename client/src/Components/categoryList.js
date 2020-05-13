@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const categories = [
   { cat: 'Closeout Special', sub: [] },
@@ -13,7 +14,7 @@ const categories = [
   { cat: 'Mops', sub: ['Super Spread Fiberglass Mops', 'Red Top Fiberglass Mops', 'Fiberglass Applicate Mops', 'Cotton Mops', 'Roller Mops & Frames', 'Mop Rings', 'Mop Hardware', 'Mop Handles'] },
   { cat: 'Nails & Fasteners', sub: ['Base Ply Fasteners', 'Button Kap', 'Concrete Fasteners & Nailins', 'Deck Screws', 'Discs, Slate Hooks & Other', 'Fastening Tools', 'Low Density Deck Fastener', 'Low Density Fastener - Tube Lok', 'Nail Strippers', 'Nails', 'Spikes & Carbide Bits', 'Term Bar'] },
   { cat: 'On Deck Equipment', sub: ['Powered', 'Non Powered'] },
-  { cat: 'Paint and Primers', sub: ['Flashing Paint', 'Asphalt Based Primer', 'Spray Paint'] },
+  { cat: 'Paints and Primers', sub: ['Flashing Paint', 'Asphalt Based Primer', 'Spray Paint'] },
   { cat: 'Personal Protection & Safety', sub: ['Gloves', 'Cleaners, Solvents & Water Cool', 'Disposal & Containment', 'First Aid & Burn Kit', 'Fire Extinguihser'] },
   { cat: 'Replacement Engines', sub: ['Kettle Engine Replacement Part', 'Replacement Engine For Sprayer', 'Replacement Kettle Engine'] },
   { cat: 'Roofmaster Kettles', sub: ['Kettles', 'Kettle Accessories', 'Kettle Repairs Parts', 'Tanker Pumps & Accessories'] },
@@ -30,29 +31,31 @@ export default function List(props) {
 
   return (
     <div id="list-group" className={props.class}>
-      <a href="/" id={'list-header'} className="list-group-item list-group-item-action flex-column align-items-start col-12" >
+      <Link to="/" id={'list-header'} className="list-group-item list-group-item-action flex-column align-items-start col-12" >
         <div className="d-flex w-100 justify-content-between">
           <h2 className="mb-1 cat-list-title">Roofmaster Products</h2>
         </div>
         {/* <p className="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
             <small>Donec id elit non mi porta.</small> */}
-      </a>
+      </Link>
       {categories.map((category, i) => {
         return (
-          <a href={'/' + category.cat} id={category.cat.split(' ').join('-') + '-list'} className="list-group-item list-group-item-action flex-column align-items-start col-12" key={i}>
+          <div className='category-list'>
+          <Link to={'/category=' + category.cat} id={category.cat.split(' ').join('-') + '-list'} className="list-group-item list-group-item-action flex-column align-items-start col-12" key={i}>
             <div className="d-flex w-100 justify-content-between">
               <h2 className="mb-1 cat-list-title">{category.cat}</h2>
             </div>
+              </Link>
             <div className='subcat-list'>
               {category.sub.map((sub, i) => {
                 return (
-                  <div key={i}><a href={'/' + category.cat + '/' + sub} className='subcat-list-item'>{sub}</a><br /></div>
+                  <div key={i}><Link to={'/category=' + category.cat + '/subcat=' + sub} className='subcat-list-item'>{sub}</Link><br /></div>
                 )
               })}
             </div>
             {/* <p className="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
             <small>Donec id elit non mi porta.</small> */}
-          </a>
+          </div>
         )
       })}
 

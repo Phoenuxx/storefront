@@ -1,9 +1,10 @@
 import React from 'react';
-
+import CartButton from './cartButton';
+import { Link } from 'react-router-dom';
 function ProductCard(props) {
 
   return (
-    <a href={'/' + props.category + '/' + props.subcategory + '/' + props.product} className="card product-card col-11 col-md-4 col-lg-3">
+    <Link to={'/category=' + props.category + '/subcat=' + props.subcategory + '/product=' + props.product} className="card product-card col-11 col-md-4 col-lg-3">
       <div className='img-wrapper row'>
         <img src={props.pic} className="card-img-top col-12" alt="..." />
       </div>
@@ -12,9 +13,9 @@ function ProductCard(props) {
         <p className="card-text card-description">{props.description.split(/\s+/).slice(0, 10).join(' ') + '...'}</p>
         <br />
         <p className='card-text item-num'>Item# {props.item}</p>
-        <a href={props.id} className="btn btn-primary">Add To Cart</a>
+        <CartButton />
       </div>
-    </a>
+    </Link>
   )
 };
 

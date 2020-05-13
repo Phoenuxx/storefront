@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import Navbar from '../Components/navbar';
 import SearchBox from '../Components/search-bar';
 import CategoryCard from '../Components/categoryCard';
@@ -31,7 +30,7 @@ const array = [{ product: 'ON DECK EQUIPMENT', pic: 'https://www.roofmaster.com/
 ];
 
 class Home extends Component {
-  render(props) {
+  render() {
     console.log(this);
     return (
       <div>

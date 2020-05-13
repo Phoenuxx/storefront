@@ -7,7 +7,6 @@ import ReactPaginate from 'react-paginate';
 import API from "../Utils/API";
 import List from '../Components/categoryList';
 
-
 class CategoryPage extends Component {
 
   //set initial state

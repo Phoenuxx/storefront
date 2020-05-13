@@ -17,10 +17,12 @@ module.exports = function (sequelize, DataTypes) {
     subCategory: DataTypes.STRING,
     price: {
       type: DataTypes.DOUBLE,
-      allowNull: false 
+      allowNull: false
     },
-    quantity: DataTypes.INTEGER
-  });
+    quantity: DataTypes.INTEGER,
+    featured: DataTypes.BOOLEAN,
+   },
+  );
 
   return Stock;
 };

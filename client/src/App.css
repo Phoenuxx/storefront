@@ -6,9 +6,26 @@
   border-bottom: 30px #f1bf05 solid !important;
 }
 
+.fa-social-icon {
+  margin-left: .5rem;
+  color: black;
+}
+
+#cart-icon {
+  position: absolute;
+  top: 44px;
+  right: 80px;
+}
+
+#cart-icon-desc {
+  font-size: 2rem;
+  padding-left:2px;
+  color: black;
+}
+
 #navbar-text-area {
   margin-left: 15%;
-  font-size: 1.5em;
+  font-size: 1.5rem;
 }
 
 .navbar-nav {
@@ -90,12 +107,12 @@ a.category-card, a.product-card {
 .nav-link, .category-card {
   font-size: 1.5em;
 }
+
 #footer {
   border-top: 40px #e0e0e0 solid;
   background-color: #f8f9fa;
   text-align: center;
 }
-
 
 #company-info {
   font-size: 1.2rem;
@@ -113,19 +130,51 @@ a.category-card, a.product-card {
   color: black;
 }
 
-#product-display {
+.product-display {
   margin: auto;
   text-align: center;
 }
 
 #product-img {
+  height: auto;
+  width: auto;
+  max-width: 70%;
   border: 1px gray solid;
 }
 
 .featured-products {  
   background-color: #f1bf05;
-  margin-left: 6rem;
+  border: 1px black solid;
+  margin: 2rem;
+  height: 400px;
+}
 
+#featured-title {
+  background-color: #f8f9fa;
+  font-size: 2rem;
+  width: 80%;
+  border-left: 1px #866900 solid;
+  border-right: 1px #866900 solid;
+  border-bottom: 1px #866900 solid;
+  /* border-left: 5rem #f1bf05 solid;
+  border-right: 5rem #f1bf05 solid; */
+  margin: 0 auto 1rem auto;
+  /* margin: 1rem auto; */
+}
+
+.carousel-inner {
+  height: 80%;
+}
+
+.controls-bg {
+  background-color: rgba(0, 0, 0, 0.281);
+}
+
+.featured-img {
+  margin: auto;
+  max-height: 300px;
+  max-width: 50%;
+  /* max-height: 50%; */
 }
 
 .list-group {
@@ -151,7 +200,7 @@ a.category-card, a.product-card {
   color: black;
 }
 
-.list-group-item:hover .subcat-list {
+.category-list:hover .subcat-list {
   /* display: block; */
   /* opacity: 1; */
   max-height: 50rem;
@@ -165,6 +214,65 @@ a.category-card, a.product-card {
   width: 7rem;
 }
 
+#checkout {
+  /* background-color: black; */
+  border-left: 1px black solid;
+  text-align: center;
+  /* color: white; */
+}
+
+#checkout-button {
+  margin-top: .5rem;
+}
+
+#cart-display {
+  background-color: rgb(247, 247, 247);
+}
+
+.cart-product-quantity {
+  width: 4rem;
+}
+
+.cart-product-name {
+  margin: auto;
+  font-size: 1.2rem;
+}
+
+.item-view {
+  margin-bottom: 1rem;
+  padding: 1rem 1rem;
+  /* border-bottom: 1px black solid; */
+  border-top: 1px black solid;
+}
+.cart-title {
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.price-col {
+  text-align: center;
+  border-bottom: 1px black solid;
+  margin-bottom: .5rem;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.cart-container {
+  min-height: 450px;
+}
+
+.subtotal {
+text-align: right;
+border-top: 1px black solid;
+font-size: 1.5rem;
+font-weight: 700;
+}
+
+.checkout-subtotal {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
 .small-screen-toggle {
   display: none;
 }
@@ -175,7 +283,7 @@ a.category-card, a.product-card {
 
 @media screen and (max-width: 991px) {
   .small-screen-toggle {
-   display: block;
+   display: inline;
   }
 
   .desktop-only {
@@ -187,6 +295,12 @@ a.category-card, a.product-card {
   
   #roofmaster-logo {
     max-height: 60px;
+  }
+
+  #cart-icon {
+    position: absolute;
+    top: 24px;
+    
   }
 
   .product-cont {
