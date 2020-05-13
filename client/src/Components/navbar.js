@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Logo from '../Utils/Images/Roofmaster-logo.png';
+import Logo from './Images/Roofmaster-logo.png';
 import List from './categoryList';
 import AuthHelperMethods from '../Utils/Authentication/authHelperMethods';
 import '../Utils/FA-Library';
