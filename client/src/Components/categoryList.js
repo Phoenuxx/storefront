@@ -18,7 +18,7 @@ const categories = [
   { cat: 'Personal Protection & Safety', sub: ['Gloves', 'Cleaners, Solvents & Water Cool', 'Disposal & Containment', 'First Aid & Burn Kit', 'Fire Extinguihser'] },
   { cat: 'Replacement Engines', sub: ['Kettle Engine Replacement Part', 'Replacement Engine For Sprayer', 'Replacement Kettle Engine'] },
   { cat: 'Roofmaster Kettles', sub: ['Kettles', 'Kettle Accessories', 'Kettle Repairs Parts', 'Tanker Pumps & Accessories'] },
-  { cat: 'Single PLy Tools & Equipment', sub: ['Hot Air Welders', 'Generators', 'Adheisve Rollers And Frames', 'Rollers, Steel And Rubber', 'Single Ply Scissors & Testers', 'Modified Bitumen Lp Torches', 'Lpg Tanks & Hoses', 'Material & Hose Clamps'] },
+  { cat: 'Single Ply Tools & Equipment', sub: ['Hot Air Welders', 'Generators', 'Adheisve Rollers And Frames', 'Rollers, Steel And Rubber', 'Single Ply Scissors & Testers', 'Modified Bitumen Lp Torches', 'Lpg Tanks & Hoses', 'Material & Hose Clamps'] },
   { cat: 'Spraying Systems', sub: ['Roof Rigs', 'Small Pump Systems', 'Granule Pump Systems', 'Granule Master', 'Pole Guns & Hoses', 'Spray Tips', 'Glass Choppers', 'Pail Warmer', 'Spray Material Valves', 'Swivel Adaptors For Spray Hoses', 'Sprayu Pump Parts', 'Hand Sprayers & Mixers', 'Warmmaster'] },
   { cat: 'Tear Off Tools', sub: ['Tear Off Spade', 'Scoop Shovels', 'Tear Off Bars - Built Up Roof', 'Tear  Off Bars - Shingle', 'Tarps', 'Trash Chutes'] },
   { cat: 'Tires', sub: ['Non-Flat Lite Foam Filled', 'Pneumatic Tires & Wheels'] },
