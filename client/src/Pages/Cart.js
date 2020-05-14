@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
 import Navbar from '../Components/navbar';
-import SearchBox from '../Components/search-bar';
-import CategoryCard from '../Components/categoryCard';
 import Footer from '../Components/footer';
-import API from "../Utils/API";
 
 
 class Cart extends Component {
@@ -59,7 +55,7 @@ class Cart extends Component {
                   <div className='row item-view'>
                     <div className='col-9 col-md-10'>
                       <div className='row'>
-                        <img class="card-img-top col-2" src={item.image} alt="Card image cap" />
+                        <img class="card-img-top col-2" src={item.image} alt={item.product} />
                         <div className='cart-product-name col-10'>{item.product}</div>
                       </div>
                       <div className="cart-product-quantity">

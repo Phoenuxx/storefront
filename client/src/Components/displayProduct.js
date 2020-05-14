@@ -17,7 +17,7 @@ function productDisplay(props) {
       <div className='row product-display'>
         <List class='desktop-only col-2' />
         <div className='col-12 col-md-6 col-lg-5'>
-          <img src={props.img} id='product-img' />
+          <img src={props.img} id='product-img' alt={props.item} />
           <Specifications
             class='desktop-only'
             item={props.item}

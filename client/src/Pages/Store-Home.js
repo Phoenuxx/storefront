@@ -3,7 +3,6 @@ import Navbar from '../Components/navbar';
 import SearchBox from '../Components/search-bar';
 import CategoryCard from '../Components/categoryCard';
 import Footer from '../Components/footer';
-import API from "../Utils/API";
 
 const array = [{ product: 'ON DECK EQUIPMENT', pic: 'https://www.roofmaster.com/wp-content/uploads/2017/06/475500_Razer_Hi_Rez-300x300.jpg' },
 { product: 'TEAR OFF TOOLS', pic: 'https://www.roofmaster.com/wp-content/uploads/2017/04/200300tigerrnotchedfulcrum-300x300.jpg' },

@@ -9,7 +9,6 @@ import Login from './Pages/Login';
 import Signup from './Pages/Signup';
 import ProductPage from './Pages/ProductPage';
 import CategoryPage from './Pages/CategoryPage';
-import page404 from './Pages/404';
 
 // const array = [{ product: 'ON DECK EQUIPMENT', pic: 'https://www.roofmaster.com/wp-content/uploads/2017/06/475500_Razer_Hi_Rez-300x300.jpg' },
 // { product: 'TEAR OFF TOOLS', pic: 'https://www.roofmaster.com/wp-content/uploads/2017/04/200300tigerrnotchedfulcrum-300x300.jpg' },

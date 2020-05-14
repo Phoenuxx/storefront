@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
 import Navbar from '../Components/navbar';
 import DisplayProduct from '../Components/displayProduct';
-import SearchBox from '../Components/search-bar';
 import Footer from '../Components/footer';
 import API from "../Utils/API";
 import { addToCart } from '../Utils/Redux/actions';
