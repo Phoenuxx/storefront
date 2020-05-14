@@ -16,7 +16,9 @@ const app = express();
 var PORT = process.env.PORT || 8080;
 
 // Static directory to be served
-app.use(express.static(path.join(__dirname, 'client/build')));
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, 'client/build')));
+}
 
 //Servers secret
 const jwtMW = exjwt({
@@ -30,6 +32,7 @@ app.get('/', jwtMW /* Using the express jwt MW here */, (req, res) => {
   console.log("Web Token Checked.")
   res.send('You are authenticated'); //Sending some response when authenticated
 });
+
 //server should expect authorization headers
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Headers', 'Content-type,Authorization');
