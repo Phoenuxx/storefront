@@ -1,5 +1,4 @@
 import React from 'react';
-import CartButton from './cartButton';
 import { Link } from 'react-router-dom';
 function ProductCard(props) {
 
@@ -13,7 +12,6 @@ function ProductCard(props) {
         <p className="card-text card-description">{props.description.split(/\s+/).slice(0, 10).join(' ') + '...'}</p>
         <br />
         <p className='card-text item-num'>Item# {props.item}</p>
-        <CartButton />
       </div>
     </Link>
   )

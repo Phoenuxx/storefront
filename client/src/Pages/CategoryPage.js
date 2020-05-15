@@ -3,7 +3,7 @@ import Navbar from '../Components/navbar';
 import Product from '../Components/productCard';
 import Footer from '../Components/footer';
 import ReactPaginate from 'react-paginate';
-import API from "../Utils/API";
+import API from "../Components/Utils/API";
 import List from '../Components/categoryList';
 
 class CategoryPage extends Component {
@@ -32,10 +32,10 @@ class CategoryPage extends Component {
   loadInv = () => {
     if (this.props.match.params.subcategory) {
       this.subcategoryCall(this.props.match.params.category.split('-').join(' '), this.props.match.params.subcategory.split('-').join(' '));
-      // console.log(this.props.match.params.category.split('-').join(' '), this.props.match.params.subcategory.split('-').join(' '));
+      console.log(this.props.match.params.category.split('-').join(' '), this.props.match.params.subcategory.split('-').join(' '));
     } else {
       this.categoryCall(this.props.match.params.category.split('-').join(' '));
-      // console.log(this.props.match.params.category.split('-').join(' '));
+      console.log(this.props.match.params.category.split('-').join(' '));
     }
   }
 
@@ -48,9 +48,9 @@ class CategoryPage extends Component {
             currentVisibleInv: res.data.slice(this.state.currentPageStart, this.state.currentPageEnd),
             pageCount: Math.ceil(res.data.length / 12)
           });
-        // console.log("currentPage: " + this.state.currentPage + "-" + " currentPageStart: " + this.state.currentPageStart + "-" + "CurrentPageEnd: " + this.state.currentPageEnd);
-        // console.log(this.state.currentVisibleInv);
-        // console.log(this.state.currentVisibleInv);
+        console.log("currentPage: " + this.state.currentPage + "-" + " currentPageStart: " + this.state.currentPageStart + "-" + "CurrentPageEnd: " + this.state.currentPageEnd);
+        console.log(this.state.currentVisibleInv);
+        console.log(this.state.currentVisibleInv);
       })
       .catch(err => console.log(err));
   };
@@ -64,8 +64,8 @@ class CategoryPage extends Component {
             currentVisibleInv: res.data.slice(this.state.currentPageStart, this.state.currentPageEnd),
             pageCount: Math.ceil(res.data.length / 12)
           });
-        // console.log("currentPage: " + this.state.currentPage + "-" + " currentPageStart: " + this.state.currentPageStart + "-" + "CurrentPageEnd: " + this.state.currentPageEnd);
-        // console.log(this.state.currentVisibleInv);
+        console.log("currentPage: " + this.state.currentPage + "-" + " currentPageStart: " + this.state.currentPageStart + "-" + "CurrentPageEnd: " + this.state.currentPageEnd);
+        console.log(this.state.currentVisibleInv);
       })
       .catch(err => console.log(err));
   };
@@ -87,8 +87,8 @@ class CategoryPage extends Component {
           currentVisibleInv: this.state.data.slice(this.state.currentPageStart, this.state.currentPageEnd),
         });
         console.log('=1');
-        // console.log("currentPage: " + this.state.currentPage + "-" + " currentPageStart: " + this.state.currentPageStart + "-" + "CurrentPageEnd: " + this.state.currentPageEnd);
-        // console.log(this.state.currentVisibleInv);
+        console.log("currentPage: " + this.state.currentPage + "-" + " currentPageStart: " + this.state.currentPageStart + "-" + "CurrentPageEnd: " + this.state.currentPageEnd);
+        console.log(this.state.currentVisibleInv);
 
       });
     }
@@ -103,10 +103,10 @@ class CategoryPage extends Component {
         this.setState({
           currentVisibleInv: this.state.data.slice(this.state.currentPageStart, this.state.currentPageEnd),
         });
-        // console.log('>1');
-        // console.log("currentPage: " + this.state.currentPage + "-" + " currentPageStart: " + this.state.currentPageStart + "-" + "CurrentPageEnd: " + this.state.currentPageEnd);
-        // console.log(this.state.currentVisibleInv);
-        // console.log(this.state);
+        console.log('>1');
+        console.log("currentPage: " + this.state.currentPage + "-" + " currentPageStart: " + this.state.currentPageStart + "-" + "CurrentPageEnd: " + this.state.currentPageEnd);
+        console.log(this.state.currentVisibleInv);
+        console.log(this.state);
       });
 
     };

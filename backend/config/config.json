@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "eur8oxd4vuvphrmv",
-    "password": "edy7cwx995vbdpt4",
-    "database": "k85obszk05pycwfi",
-    "host": "pqxt96p7ysz6rn1f.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "username": "root",
+    "password": null,
+    "database": "roofmaster",
+    "host": "127.0.0.1",
     "port": 3306,
     "dialect": "mysql"
   },

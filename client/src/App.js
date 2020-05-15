@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
-import AuthHelperMethods from './Utils/Authentication/authHelperMethods';
-import withAuth from './Utils/Authentication/withAuth';
+import AuthHelperMethods from './Components/Utils/Authentication/authHelperMethods';
+import withAuth from './Components/Utils/Authentication/withAuth';
 import Home from './Pages/Store-Home';
 import Cart from './Pages/Cart';
 import Login from './Pages/Login';

@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import axios from "axios";
 import { Link } from 'react-router-dom';
-import AuthHelperMethods from '../Utils/Authentication/authHelperMethods';
+import AuthHelperMethods from '../Components/Utils/Authentication/authHelperMethods';
 
 export default class Signup extends Component {
     
