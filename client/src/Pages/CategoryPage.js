@@ -30,11 +30,11 @@ class CategoryPage extends Component {
 
   //Initial API call to pull product data
   loadInv = () => {
-    console.log('load inv test');
     if (this.props.match.params.subcategory) {
       this.subcategoryCall(this.props.match.params.category.split('-').join(' '), this.props.match.params.subcategory.split('-').join(' '));
       console.log(this.props.match.params.category.split('-').join(' '), this.props.match.params.subcategory.split('-').join(' '));
     } else {
+      console.log('load inv test else');
       this.categoryCall(this.props.match.params.category.split('-').join(' '));
       console.log(this.props.match.params.category.split('-').join(' '));
     }
