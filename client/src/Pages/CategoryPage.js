@@ -30,6 +30,7 @@ class CategoryPage extends Component {
 
   //Initial API call to pull product data
   loadInv = () => {
+    console.log('load inv test');
     if (this.props.match.params.subcategory) {
       this.subcategoryCall(this.props.match.params.category.split('-').join(' '), this.props.match.params.subcategory.split('-').join(' '));
       console.log(this.props.match.params.category.split('-').join(' '), this.props.match.params.subcategory.split('-').join(' '));
@@ -48,7 +49,7 @@ class CategoryPage extends Component {
             currentVisibleInv: res.data.slice(this.state.currentPageStart, this.state.currentPageEnd),
             pageCount: Math.ceil(res.data.length / 12)
           });
-        console.log('this.state.currentVisibleInv');
+
         console.log("currentPage: " + this.state.currentPage + "-" + " currentPageStart: " + this.state.currentPageStart + "-" + "CurrentPageEnd: " + this.state.currentPageEnd);
         console.log(this.state.currentVisibleInv);
         console.log(this.state.currentVisibleInv);
