@@ -48,6 +48,7 @@ class CategoryPage extends Component {
             currentVisibleInv: res.data.slice(this.state.currentPageStart, this.state.currentPageEnd),
             pageCount: Math.ceil(res.data.length / 12)
           });
+        console.log('this.state.currentVisibleInv');
         console.log("currentPage: " + this.state.currentPage + "-" + " currentPageStart: " + this.state.currentPageStart + "-" + "CurrentPageEnd: " + this.state.currentPageEnd);
         console.log(this.state.currentVisibleInv);
         console.log(this.state.currentVisibleInv);

@@ -16,9 +16,8 @@ const app = express();
 var PORT = process.env.PORT || 8080;
 
 // Static directory to be served
-if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, 'client/build')));
-}
+
 
 //Servers secret
 const jwtMW = exjwt({
