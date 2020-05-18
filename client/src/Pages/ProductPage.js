@@ -3,8 +3,8 @@ import { connect } from "react-redux";
 import Navbar from '../Components/navbar';
 import DisplayProduct from '../Components/displayProduct';
 import Footer from '../Components/footer';
-import API from "../Components/Utils/API";
-import { addToCart } from '../Components/Utils/Redux/actions';
+import API from "../Utils/API";
+import { addToCart } from '../Utils/Redux/actions';
 
 class Product extends Component {
   constructor(props) {

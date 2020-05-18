@@ -3,7 +3,7 @@ import Navbar from '../Components/navbar';
 import Product from '../Components/productCard';
 import Footer from '../Components/footer';
 import ReactPaginate from 'react-paginate';
-import API from "../Components/Utils/API";
+import API from "../Utils/API";
 import List from '../Components/categoryList';
 
 class CategoryPage extends Component {

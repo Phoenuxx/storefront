@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Logo from './/Utils/Images/Roofmaster-logo.png';
+import Logo from '../Utils/Images/Roofmaster-logo.png';
 import List from './categoryList';
-import AuthHelperMethods from './Utils/Authentication/authHelperMethods';
-import '../Components/Utils/FA-Library';
+import AuthHelperMethods from '../Utils/Authentication/authHelperMethods';
+import '../Utils/FA-Library';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function NavBar(props) {

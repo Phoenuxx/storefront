@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
 // import './login.css'
-import AuthHelperMethods from '../Components/Utils/Authentication/authHelperMethods';
+import AuthHelperMethods from '../Utils/Authentication/authHelperMethods';
 
 class Login extends Component {
 

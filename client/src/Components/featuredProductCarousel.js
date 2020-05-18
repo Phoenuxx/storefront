@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import API from "../Components/Utils/API";
+import API from "../Utils/API";
 
 export default class featuredProduct extends Component {
 
