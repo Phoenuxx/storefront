@@ -48,7 +48,7 @@ class CategoryPage extends Component {
             currentVisibleInv: res.data.slice(this.state.currentPageStart, this.state.currentPageEnd),
             pageCount: Math.ceil(res.data.length / 12)
           });
-
+        console.log(res)
         // console.log("currentPage: " + this.state.currentPage + "-" + " currentPageStart: " + this.state.currentPageStart + "-" + "CurrentPageEnd: " + this.state.currentPageEnd);
         // console.log(this.state.currentVisibleInv);
         // console.log(this.state.currentVisibleInv);
@@ -65,6 +65,7 @@ class CategoryPage extends Component {
             currentVisibleInv: res.data.slice(this.state.currentPageStart, this.state.currentPageEnd),
             pageCount: Math.ceil(res.data.length / 12)
           });
+        console.log(res)
         // console.log("currentPage: " + this.state.currentPage + "-" + " currentPageStart: " + this.state.currentPageStart + "-" + "CurrentPageEnd: " + this.state.currentPageEnd);
         // console.log(this.state.currentVisibleInv);
       })
@@ -137,7 +138,7 @@ class CategoryPage extends Component {
         <Navbar />
         <div className='row'>
           <div className='col-2'>
-            <List class='desktop-only'/>
+            <List class='desktop-only' />
           </div>
           <div className='col-12 col-lg-10'>
             <div className='row product-cont'>
