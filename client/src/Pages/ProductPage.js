@@ -28,7 +28,7 @@ class Product extends Component {
           {
             data: res.data,
           });
-        // console.log(this.state);
+        console.log(res.data);
       })
       .catch(err => console.log(err));
   };
