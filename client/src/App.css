@@ -195,9 +195,10 @@ a.category-card, a.product-card {
   /* max-height: 50%; */
 }
 
-#list-group {
+.list-group {
   margin-top: 1rem; 
   margin-left: .25rem;
+  font-size: 1.15rem;
 }
 
 .cat-list-title {
@@ -246,6 +247,15 @@ a.category-card, a.product-card {
 }
 
 .cart-product-quantity {
+  width: 4rem;
+}
+#quantity-label {
+  margin-right: .5rem;
+}
+
+#quantity-select {
+  display: inline;
+  margin: .25rem auto;
   width: 4rem;
 }
 
