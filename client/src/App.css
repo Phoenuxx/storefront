@@ -11,6 +11,10 @@
   color: black;
 }
 
+.social-text {
+  font-size: 1.5rem;
+}
+
 #cart-icon {
   position: absolute;
   top: 44px;
@@ -83,6 +87,9 @@
   max-width: 75%;
   /* background-color: black; */
 }
+#category-page {
+  margin: auto;
+}
 
 .category-cont {
   margin: 3rem auto;
@@ -95,8 +102,19 @@
   width: 300px;
 }
 .pagination {
-  text-align: center;
   font-size: 2rem;
+}
+
+.paginate-row {
+  margin-right: 0px;
+}
+.active-page, .active-page:focus {
+  border: 1px rgb(153, 153, 153) solid;
+  border-radius: .25rem;
+}
+
+.page-tab, .previous, .next {
+  margin: 0 3px;
 }
 
 a.category-card, a.product-card {
@@ -177,37 +195,35 @@ a.category-card, a.product-card {
   /* max-height: 50%; */
 }
 
-.list-group {
-  margin-top: 1rem;
-  padding-right: 2rem;
-  text-align: justify;
+#list-group {
+  margin-top: 1rem; 
+  margin-left: .25rem;
 }
 
 .cat-list-title {
   font-size: 1.2rem;
+  font-weight: 500;
 }
 
 .subcat-list {
-  /* display: none; */
-  /* transition: opacity 1s; */
   transition: max-height 2s ease-out;
-  /* opacity: 0; */
   max-height: 0;
   overflow: hidden;
+  padding-left: 2rem;
 }
 
 .subcat-list-item {
   color: black;
+  font-size: 1.1rem;
 }
 
 .category-list:hover .subcat-list {
-  /* display: block; */
-  /* opacity: 1; */
   max-height: 50rem;
 }
 
 .dropdown-menu{
     width: 13rem;
+    padding: 0rem;
   }
 
 #add-cart-btn {

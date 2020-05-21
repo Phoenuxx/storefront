@@ -30,8 +30,7 @@ const array = [{ product: 'ON DECK EQUIPMENT', pic: 'https://www.roofmaster.com/
 
 class Home extends Component {
   render() {
-    console.log(this);
-    return (
+   return (
       <div>
         <Navbar />
         <SearchBox />

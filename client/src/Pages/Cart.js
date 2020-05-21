@@ -37,6 +37,7 @@ class Cart extends Component {
     return (
       <div>
         <Navbar />
+        {this.props.cart.length > 0 ?
         <div className='row cart-container'>
           <div className='col-8 col-lg-10' id='cart-display'>
             <div className='row'>
@@ -89,7 +90,7 @@ class Cart extends Component {
             <div className='checkout-subtotal'>Subtotal ({this.state.totalItems} Items):${this.state.subtotal}</div>
             <button id='checkout-button' className='btn btn-outline-dark btn-warning' onClick={() => alert('order submitted')}>Procced w/ Checkout</button>
           </div>
-        </div>
+        </div> : <div> Your cart is empty</ div>}
         <Footer />
       </div>
     )

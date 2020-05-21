@@ -30,7 +30,7 @@ const categories = [
 export default function List(props) {
 
   return (
-    <div id="list-group" className={props.class}>
+    <div id={props.id} className={props.class}>
       <Link to="/" id={'list-header'} className="list-group-item list-group-item-action flex-column align-items-start col-12" >
         <div className="d-flex w-100 justify-content-between">
           <h2 className="mb-1 cat-list-title">Roofmaster Products</h2>

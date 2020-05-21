@@ -7,6 +7,7 @@ import API from "../Utils/API";
 import { addToCart } from '../Utils/Redux/actions';
 
 class Product extends Component {
+  
   constructor(props) {
     super(props)
     this.state = {
@@ -28,7 +29,7 @@ class Product extends Component {
           {
             data: res.data,
           });
-        console.log(res.data);
+        console.log(res);
       })
       .catch(err => console.log(err));
   };

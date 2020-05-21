@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import Navbar from '../Components/navbar';
 import Product from '../Components/productCard';
-import Footer from '../Components/footer';
-import ReactPaginate from 'react-paginate';
-import API from "../Utils/API";
+import DisplayCategory from '../Components/displayCategory';
 import List from '../Components/categoryList';
+import ReactPaginate from 'react-paginate';
+import Footer from '../Components/footer';
+import API from "../Utils/API";
 
 class CategoryPage extends Component {
 
@@ -136,36 +137,27 @@ class CategoryPage extends Component {
     return (
       <div>
         <Navbar />
-        <div className='row'>
-          <div className='col-2'>
-            <List class='desktop-only' />
+        <DisplayCategory product={this.state.currentVisibleInv} />
+        <div className='row paginate-row'>
+          <div className='col-2 col-sm-3 col-md-4 col-lg-5' />
+          <div className='col-8 col-sm-5 col-md-4 col-lg-3 paginate-div'>
+            {this.state.pageCount > 1 ?
+              <ReactPaginate
+                previousLabel={'Previous'}
+                nextLabel={'Next'}
+                breakLabel={'...'}
+                breakClassName={'break-me'}
+                pageCount={this.state.pageCount}
+                marginPagesDisplayed={2}
+                pageRangeDisplayed={2}
+                onPageChange={this.setCurrentpage}
+                containerClassName={'pagination'}
+                pageClassName={'page-tab'}
+                activeClassName={'active-page'}
+              />
+              : <div>1</div>}
           </div>
-          <div className='col-12 col-lg-10'>
-            <div className='row product-cont'>
-              {this.state.currentVisibleInv.map((info, i) => {
-                return <Product key={i} id={info.id} product={info.product_name} pic={info.picture} description={info.description} item={info.item_number} category={info.category} subcategory={info.subCategory} />
-              })
-              }
-            </div>
-          </div>
-        </div>
-        <div className='row'>
-          {this.state.pageCount > 1 ?
-            <ReactPaginate
-              previousLabel={'previous'}
-              nextLabel={'next'}
-              breakLabel={'...'}
-              breakClassName={'break-me'}
-              pageCount={this.state.pageCount}
-              marginPagesDisplayed={2}
-              pageRangeDisplayed={2}
-              onPageChange={this.setCurrentpage}
-              containerClassName={'pagination col-12'}
-              subContainerClassName={'pages pagination'}
-              activeClassName={'active'}
-            // url={'http://localhost:3000/'}
-            />
-            : <div>1</div>}
+          <div className='col-2 col-sm-4' />
         </div>
         <Footer />
       </div >

@@ -12,6 +12,7 @@ function ProductCard(props) {
         <p className="card-text card-description">{props.description.split(/\s+/).slice(0, 10).join(' ') + '...'}</p>
         <br />
         <p className='card-text item-num'>Item# {props.item}</p>
+        <p>Click for more details</p>
       </div>
     </Link>
   )

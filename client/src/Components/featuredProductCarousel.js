@@ -28,7 +28,7 @@ export default class featuredProduct extends Component {
   render() {
     return (
       <div id="carouselExampleIndicators" className="carousel slide featured-products desktop-only" data-ride="carousel">
-        <div id='featured-title'><h1>Similar Products</h1></div>
+        <div id='featured-title'><h1>Featured/Similar Products</h1></div>
         <ol className="carousel-indicators">
           <li data-target="#caroExampleIndicauseltors" data-slide-to="0" className="active"></li>
           {this.state.data.map((info, i) => {
