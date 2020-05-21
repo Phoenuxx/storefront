@@ -30,9 +30,9 @@ function productDisplay(props) {
           />
         </div>
         <div className='col-12 col-md-6 col-lg-5' >
-          <h1 className='col-12' id='product-name'>{props.product}</h1>
+          <h1 className='col-12' id='product-page-name'>{props.product}</h1>
           <br /><br />
-          <p className='col-12' id='product-description'>{props.description}</p>
+          <p className='col-12' id='product-page-description'>{props.description}</p>
           <Featured url={props.url} />
         </div>
         <Specifications

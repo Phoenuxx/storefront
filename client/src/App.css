@@ -94,7 +94,7 @@
 .category-cont {
   margin: 3rem auto;
   height: auto;
-  max-width: 75%;
+  max-width: 70%;
   /* background-color: black; */
 }
 
@@ -160,6 +160,14 @@ a.category-card, a.product-card {
   border: 1px gray solid;
 }
 
+#product-page-name {
+  font-size: 2rem;
+}
+
+#product-page-description {
+  font-size: 1.2rem;
+}
+
 .featured-products {  
   background-color: #f1bf05;
   border: 1px black solid;
@@ -182,6 +190,10 @@ a.category-card, a.product-card {
 
 .carousel-inner {
   height: 80%;
+}
+
+#carouselIndicators {
+  margin-top: 13.5rem;
 }
 
 .controls-bg {

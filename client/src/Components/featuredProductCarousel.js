@@ -27,12 +27,12 @@ export default class featuredProduct extends Component {
 
   render() {
     return (
-      <div id="carouselExampleIndicators" className="carousel slide featured-products desktop-only" data-ride="carousel">
+      <div id="carouselIndicators" className="carousel slide featured-products desktop-only" data-ride="carousel">
         <div id='featured-title'><h1>Featured/Similar Products</h1></div>
         <ol className="carousel-indicators">
-          <li data-target="#caroExampleIndicauseltors" data-slide-to="0" className="active"></li>
+          <li data-target="#caroIndicauseltors" data-slide-to="0" className="active"></li>
           {this.state.data.map((info, i) => {
-            return <li data-target="#carouselExampleIndicators" data-slide-to={i + 1}  ></li>
+            return <li data-target="#carouselIndicators" data-slide-to={i + 1}  ></li>
           })
           }
         </ol>
@@ -54,11 +54,11 @@ export default class featuredProduct extends Component {
               </div>
             )
           })}
-          <a className="carousel-control-prev controls-bg" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <a className="carousel-control-prev controls-bg" href="#carouselIndicators" role="button" data-slide="prev">
             <span className="carousel-control-prev-icon" aria-hidden="true"></span>
             <span className="sr-only">Previous</span>
           </a>
-          <a className="carousel-control-next controls-bg" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <a className="carousel-control-next controls-bg" href="#carouselIndicators" role="button" data-slide="next">
             <span className="carousel-control-next-icon" aria-hidden="true"></span>
             <span className="sr-only">Next</span>
           </a>
